@@ -1,9 +1,13 @@
 const express = require('express')  // import express library
 const path = require('path')  // import path library
+const bodyParser = require('body-parser')  // import body parser for POST requests
 
 const indexRouter = require('./routes/index')  // import routes
 
 const app = express()  // create web application server
+
+//enable parsing of POST request form body
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // configure application to use Handlebars template engine and work with template files in views directory
 // in other words - tell application where views (HTML/template files) are and use Handlebars to generate them
